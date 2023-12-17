@@ -13,4 +13,11 @@ The necessary torchversion could be find using
 import torch
 torchversion = torch.__version__
 print(torchversion)
+
+Results:
+test_audios/audio_3.flac: bonafide prob: 0.032531432807445526
+test_audios/audio_1.flac: bonafide prob: 0.0006950827082619071
+test_audios/generated.mp3: bonafide prob: 0.007867229171097279
+test_audios/audio_2.flac: bonafide prob: 0.000498166074976325
+test_audios/unknown.mp3: bonafide prob: 0.3997294008731842
 `

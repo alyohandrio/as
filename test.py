@@ -7,7 +7,7 @@ import torch
 
 with open("hw_as/configs/aasist_config.json", 'r') as f:
     cfg = json.load(f)
-model = AASIST(*cfg["arch"]["args"]))
+model = AASIST(**cfg["arch"]["args"])
 
 paths = os.listdir("test_audios")
 audios = []
