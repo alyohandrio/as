@@ -1,0 +1,86 @@
+{
+  "name": "basic_train",
+  "n_gpu": 1,
+  "arch": {
+    "type": "AASIST",
+      "args": {
+      "sinc_channels": 70,
+      "sinc_kernel": 128,
+      "res_channels": [[1, 32], [32, 32], [32, 64], [64, 64], [64, 64], [64, 64]],
+      "gat_ks": [0.5, 0.7],
+      "gat_dropout": 0.2,
+      "pool_dropout": 0.2,
+      "mgo_in_dims": [64, 32],
+      "mgo_out_dims": [32, 32],
+      "mgo_ks": [[0.5, 0.5], [0.5, 0.5]],
+      "feat_dropout": 0.2,
+      "final_dropout": 0.5
+    }
+  },
+  "data": {
+    "train": {
+      "batch_size": 8,
+      "num_workers": 2,
+      "datasets": [
+        {
+          "type": "ASVDataset",
+          "args": {
+            "root": ".",
+	    "split": "train",
+	    "l_suf": "train.trn"
+          }
+        }
+      ]
+    },
+    "val": {
+      "batch_size": 32,
+      "num_workers": 2,
+      "datasets": [
+        {
+          "type": "ASVDataset",
+	  "args": {
+            "root": ".",
+	    "split": "eval",
+	    "l_suf": "eval.trl"
+	  }
+	}
+      ]
+    }
+  },
+  "optimizer": {
+    "type": "Adam",
+    "args": {
+      "lr": 1e-4,
+      "betas": [0.8, 0.99],
+      "weight_decay": 1e-2
+    }
+  },
+  "loss": {
+    "type": "CELoss",
+    "args": {}
+  },
+  "metrics": [
+    {
+      "type": "EER",
+      "args": {}
+    }
+  ],
+  "lr_scheduler": {
+    "type": "ExponentialLR",
+    "args": {
+      "gamma": 0.999
+    }
+  },
+  "trainer": {
+    "epochs": 10,
+    "save_dir": "saved/",
+    "save_period": 5,
+    "verbosity": 2,
+    "monitor": "min val_loss",
+    "early_stop": 100,
+    "visualize": "wandb",
+    "wandb_project": "as_test",
+    "len_epoch": 11,
+    "grad_norm_clip": 10
+  }
+}
