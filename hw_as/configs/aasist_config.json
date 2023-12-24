@@ -66,21 +66,21 @@
     }
   ],
   "lr_scheduler": {
-    "type": "ExponentialLR",
     "args": {
-      "gamma": 0.999
-    }
+      "T_max": 40000
+    },
+    "type": "CosineAnnealingLR"
   },
   "trainer": {
-    "epochs": 10,
-    "save_dir": "saved/",
-    "save_period": 5,
-    "verbosity": 2,
+    "epochs": 1000,
     "monitor": "min val_loss",
-    "early_stop": 100,
+    "save_dir": "saved/",
+    "len_epoch": 100,
+    "verbosity": 2,
     "visualize": "wandb",
+    "early_stop": 100,
+    "save_period": 10,
     "wandb_project": "as_test",
-    "len_epoch": 11,
     "grad_norm_clip": 10
   }
 }
