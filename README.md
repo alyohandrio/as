@@ -22,6 +22,9 @@ Run `python train.py -c your_config_path -r checkpoint_path` to train AASIST mod
 ## Evaluation
 To get predictions for desired audios, put them in `test_audios` folder and run `python test.py`. Paths to the audios and obtained score will be printed to standard output.
 
+## Dataset
+The dataset used for training is LA partition of ASVspoof 2019 Dataset. To download it run `download_dataset.sh` script. It requires your kaggle api token to be located in `~/.kaggle/kaggle.json`.
+
 ## Results
 test\_audios/audio\_3.flac: bonafide prob: 0.03712696582078934
 test\_audios/audio\_1.flac: bonafide prob: 0.03034604713320732
