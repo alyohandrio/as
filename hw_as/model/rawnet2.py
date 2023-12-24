@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from hw_as.modules import RawNetEncoder
+from hw_as.model.modules import RawNetEncoder
 
 class RawNet2(nn.Module):
     def __init__(self, sinc_channels, sinc_kernel, res_channels, slope, gru_layers, gru_hidden, fc_out, min_low_hz=0, min_band_hz=0):

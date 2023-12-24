@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from hw_as.modules import AASISTEncoder, GraphModule, MGO
+from hw_as.model.modules import AASISTEncoder, GraphModule, MGO
 
 
 class AASIST(nn.Module):
