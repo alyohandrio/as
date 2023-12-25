@@ -66,10 +66,10 @@
     }
   ],
   "lr_scheduler": {
+    "type": "CosineAnnealingLR",
     "args": {
       "T_max": 40000
-    },
-    "type": "CosineAnnealingLR"
+    }
   },
   "trainer": {
     "epochs": 1000,
