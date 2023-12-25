@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import math
-from hw_as.modules.sinc_conv import SincConv_fast
+from hw_as.model.modules.sinc_conv import SincConv_fast
 
 
 class ResidualBlock(nn.Module):
