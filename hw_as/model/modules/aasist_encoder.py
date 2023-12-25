@@ -42,7 +42,7 @@ class AASISTEncoder(nn.Module):
 
     def forward(self, x):
         x = self.sinc(x.unsqueeze(1))
-        x = self.post_sinc(x.unsqueeze(1))
+        x = self.post_sinc(x.unsqueeze(1).abs())
         for block in self.res_blocks:
             x = block(x)
         return x

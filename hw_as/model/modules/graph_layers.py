@@ -251,8 +251,8 @@ class MGO(nn.Module):
         lhs = torch.max(self.drop(results["first"]["lhs"]), self.drop(results["second"]["lhs"]))
         rhs = torch.max(self.drop(results["first"]["rhs"]), self.drop(results["second"]["rhs"]))
         master = torch.max(self.drop(results["first"]["master"]), self.drop(results["second"]["master"]))
-        lhs_max = torch.max(lhs, dim=1).values
-        rhs_max = torch.max(rhs, dim=1).values
+        lhs_max = torch.max(lhs.abs(), dim=1).values
+        rhs_max = torch.max(rhs.abs(), dim=1).values
         lhs_mean = torch.mean(lhs, dim=1)
         rhs_mean = torch.mean(rhs, dim=1)
         x = torch.cat([lhs_max, lhs_mean, rhs_max, rhs_mean, master.squeeze(1)], dim=1)
